@@ -6,7 +6,7 @@ import SearchResults from './components/SearchResults'
 import ErrorMessage from './components/ErrorMessage'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import { getGitHubSearchUri } from './helpers/functions'
+import { getGitHubSearchUri } from './helpers/getGitHubSearchUri'
 import PaginationForm from './components/PaginationForm'
 import Instructions from './components/Instructions'
 function App() {
