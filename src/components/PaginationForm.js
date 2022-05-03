@@ -36,6 +36,7 @@ export default function PaginationForm({
             value={perPage}
             onChange={e => {
               setPerPage(e.target.value)
+              setPage(1)
               setSubmitEvent(e)
             }}
           >
