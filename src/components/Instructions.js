@@ -2,7 +2,7 @@ export default function Instructions() {
   return (
     <div className={'instructions'}>
       <p>
-        <strong>Hello, and Welcome!</strong>
+        <h3>Hello, and Welcome!</h3>
       </p>{' '}
       To get started, please enter a user or organization name in the search
       box, Then choose a type as <strong>Users</strong> or{' '}

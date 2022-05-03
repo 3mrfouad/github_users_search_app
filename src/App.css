@@ -92,6 +92,7 @@
 }
 
 .formSectionTitle {
+  font-size: 1.1rem;
   display: inline-block;
   width: 5rem;
 }
@@ -106,6 +107,8 @@
 
 .termInput {
   text-indent: 8px;
+  font-size: 1rem;
+  font-family: var(--font-family);
 }
 
 .termInput::placeholder {
