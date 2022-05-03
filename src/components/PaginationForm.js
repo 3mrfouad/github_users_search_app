@@ -11,7 +11,6 @@ export default function PaginationForm({
   handleSubmit
 }) {
   const [showPagination, setShowPagination] = useState(false)
-  const [submitEvent, setSubmitEvent] = useState()
   const [pagesTotal, setPagesTotal] = useState(0)
 
   useEffect(() => {
@@ -23,10 +22,6 @@ export default function PaginationForm({
     setPagesTotal(Math.ceil(results?.total_count / perPage))
   }, [results, perPage])
 
-  useEffect(() => {
-    results && handleSubmit(submitEvent)
-  }, [page, perPage])
-
   return (
     showPagination && (
       <form className="paginationForm">
@@ -37,7 +32,7 @@ export default function PaginationForm({
             onChange={e => {
               setPerPage(e.target.value)
               setPage(1)
-              setSubmitEvent(e)
+              handleSubmit(e)
             }}
           >
             {Object.values(PER_PAGE_SIZE).map(num => {
@@ -56,7 +51,7 @@ export default function PaginationForm({
             disabled={page === 1}
             onClick={e => {
               setPage(page - 1)
-              setSubmitEvent(e)
+              handleSubmit(e)
             }}
             className={'submitBtn paginationBtn'}
           >
@@ -70,7 +65,7 @@ export default function PaginationForm({
             disabled={page >= pagesTotal}
             onClick={e => {
               setPage(page + 1)
-              setSubmitEvent(e)
+              handleSubmit(e)
             }}
             className={'submitBtn paginationBtn'}
           >
