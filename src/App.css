@@ -1,38 +1,220 @@
-.App {
-  text-align: center;
+.app {
+  padding: 0 5vw;
+  min-height: calc(100vh - 100px);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.loader {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.logo {
+  width: 35px;
+  height: 35px;
+  margin-left: var(--spacing-md);
+  content: url('./assets/github-normal.png');
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    content: url('./assets/github-dark.png');
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin: var(--spacing-md) 0;
+}
+
+.instructions {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  line-height: 2;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.avatar {
+  display: block;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.listItem {
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: var(--spacing-xs);
+  width: 200px;
+  padding: var(--spacing-xs);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--main-border-radius);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.App-link {
-  color: #61dafb;
+.cardContainer span:first-child {
+  word-break: break-all;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.resultsContainer {
+  margin-top: var(--spacing-md);
+  border-top: 1px solid var(--secondary-color);
+}
+
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding-inline-start: 0px !important;
+  row-gap: var(--spacing-sm);
+}
+
+.cardUri {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-xs) * 0.25);
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+.formSectionTitle {
+  display: inline-block;
+  width: 5rem;
+}
+
+.typeContainer {
+  margin-top: var(--spacing-sm);
+}
+
+.typeContainer label:last-child {
+  margin-left: var(--spacing-xs);
+}
+
+.termInput {
+  text-indent: 8px;
+}
+
+.termInput::placeholder {
+  font-style: italic;
+}
+
+.termInput:focus {
+  outline-color: var(--main-color);
+}
+
+.termInput,
+.submitBtn {
+  width: 50vw;
+  height: 40px;
+  border-radius: calc(var(--main-border-radius) * 0.5);
+}
+
+input[type='radio'] {
+  transform: scale(1.5);
+}
+
+.submitBtn {
+  display: block;
+  margin-top: var(--spacing-sm);
+  margin-left: calc(var(--spacing-xs) * 5);
+  cursor: pointer;
+  border: 1px solid var(--main-color);
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+.submitBtn:disabled {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.perPage select,
+.submitBtn {
+  font-family: var(--font-family);
+  font-size: 1.1rem;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.paginationForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.perPage {
+  margin-top: var(--spacing-md);
+}
+
+.perPage select {
+  height: 40px;
+  width: 100px;
+  text-align: center;
+}
+
+.btnGroup {
+  margin-top: var(--spacing-xs);
+}
+
+.paginationBtn {
+  display: inline;
+  margin: 0;
+  width: 100px;
+}
+
+.feedbackContainer {
+  margin-top: var(--spacing-md);
+}
+
+.pageCount {
+  display: inline-block;
+  margin: var(--spacing-xs);
+}
+
+.errorMsgContainer {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-xs) * 0.5);
+  background-color: var(--error-text-color-op5);
+  border: 1px solid var(--error-text-color-op25);
+  border-radius: var(--main-border-radius);
+  padding: var(--spacing-xs);
+  font-weight: bold;
+  color: var(--error-text-color);
+}
+
+@media screen and (min-width: 800px) {
+  .formContainer {
+    max-width: 50vw;
   }
-  to {
-    transform: rotate(360deg);
+  .termInput,
+  .submitBtn {
+    width: 25vw;
   }
+  .paginationBtn {
+    width: 150px;
+  }
+  .listItem {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+footer {
+  height: 50px;
+  text-align: center;
 }
