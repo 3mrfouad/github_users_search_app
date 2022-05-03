@@ -11,7 +11,7 @@ export default function SearchForm({
       <span className={'formSectionTitle'}>
         <strong>Search</strong>
       </span>
-      <label>
+      <label aria-label="Search Input">
         <input
           type={'search'}
           value={term}

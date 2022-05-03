@@ -5,6 +5,7 @@
   --font-color: rgb(0, 0, 0);
   --main-color: rgb(1, 89, 138);
   --secondary-color: rgba(155, 180, 243, 0.5);
+  --btn-font-color: #fff;
   --error-text-color-op5: rgba(255, 0, 0, 0.05);
   --error-text-color-op25: rgba(255, 0, 0, 0.25);
   --error-text-color: red;
@@ -18,10 +19,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: rgb(0, 0, 0);
-    --font-color: rgb(181, 181, 181);
-    --main-color: rgb(89, 167, 255);
-    --secondary-color: rgba(89, 166, 255, 0.5);
+    --background-color: #121212;
+    --font-color: #f0f4f8;
+    --main-color: #303f9f;
+    --secondary-color: #bdbdbd;
   }
 }
 

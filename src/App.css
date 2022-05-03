@@ -88,7 +88,7 @@
   align-items: center;
   gap: calc(var(--spacing-xs) * 0.25);
   text-decoration: none;
-  color: var(--main-color);
+  color: var(--font-color);
 }
 
 .formSectionTitle {
@@ -135,12 +135,13 @@ input[type='radio'] {
   cursor: pointer;
   border: 1px solid var(--main-color);
   background-color: var(--main-color);
-  color: #fff;
+  color: var(--btn-font-color);
 }
 
 .submitBtn:disabled {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
+  color: var(--main-color);
 }
 
 .perPage select,
@@ -198,13 +199,15 @@ input[type='radio'] {
   color: var(--error-text-color);
 }
 
+footer {
+  height: 50px;
+  text-align: center;
+}
+
 @media screen and (min-width: 800px) {
-  .formContainer {
-    max-width: 50vw;
-  }
   .termInput,
   .submitBtn {
-    width: 25vw;
+    width: 30vw;
   }
   .paginationBtn {
     width: 150px;
@@ -215,7 +218,9 @@ input[type='radio'] {
   }
 }
 
-footer {
-  height: 50px;
-  text-align: center;
+@media screen and (min-width: 300px) {
+  .termInput,
+  .submitBtn {
+    width: 80w;
+  }
 }
