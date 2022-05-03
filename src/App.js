@@ -19,12 +19,6 @@ function App() {
   const [type, setType] = useState('user')
 
   const handleSubmit = async e => {
-    // warn user if no search term
-    if (!term) {
-      alert('Please enter search term')
-      return
-    }
-
     // load backend data
     setLoading(true)
     e.preventDefault()
