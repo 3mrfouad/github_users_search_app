@@ -56,7 +56,7 @@ export default function PaginationForm({
             className={'paginationBtn'}
             aria-label={'first page'}
           >
-            <span class="material-symbols-outlined">first_page</span>
+            <span className="material-symbols-outlined">first_page</span>
           </button>
           <button
             type={'submit'}
@@ -68,7 +68,9 @@ export default function PaginationForm({
             className={'paginationBtn'}
             aria-label={'previous page'}
           >
-            <span class="material-symbols-outlined">arrow_back_ios_new</span>{' '}
+            <span className="material-symbols-outlined">
+              arrow_back_ios_new
+            </span>{' '}
           </button>
           <span className={'pageCount'}>
             {page}/{pagesTotal}
@@ -83,7 +85,7 @@ export default function PaginationForm({
             className={'paginationBtn'}
             aria-label={'next page'}
           >
-            <span class="material-symbols-outlined">arrow_forward_ios</span>{' '}
+            <span className="material-symbols-outlined">arrow_forward_ios</span>{' '}
           </button>
           <button
             type={'submit'}
@@ -95,7 +97,7 @@ export default function PaginationForm({
             className={'paginationBtn'}
             aria-label={'last page'}
           >
-            <span class="material-symbols-outlined">last_page</span>
+            <span className="material-symbols-outlined">last_page</span>
           </button>
         </div>
       </form>

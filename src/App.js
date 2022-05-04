@@ -33,7 +33,7 @@ function App() {
         results?.total_count - page * perPage,
         e.target.value
       )
-
+      console.log(results?.total_count - page * perPage, e.target.value)
       const response = await fetch(
         getGitHubSearchUri(term, type, page, _perPage)
       )
