@@ -50,12 +50,25 @@ export default function PaginationForm({
             type={'submit'}
             disabled={page === 1}
             onClick={e => {
+              setPage(1)
+              handleSubmit(e)
+            }}
+            className={'paginationBtn'}
+            aria-label={'first page'}
+          >
+            <span class="material-symbols-outlined">first_page</span>
+          </button>
+          <button
+            type={'submit'}
+            disabled={page === 1}
+            onClick={e => {
               setPage(page - 1)
               handleSubmit(e)
             }}
-            className={'submitBtn paginationBtn'}
+            className={'paginationBtn'}
+            aria-label={'previous page'}
           >
-            Previous
+            <span class="material-symbols-outlined">arrow_back_ios_new</span>{' '}
           </button>
           <span className={'pageCount'}>
             {page}/{pagesTotal}
@@ -67,9 +80,22 @@ export default function PaginationForm({
               setPage(page + 1)
               handleSubmit(e)
             }}
-            className={'submitBtn paginationBtn'}
+            className={'paginationBtn'}
+            aria-label={'next page'}
           >
-            Next
+            <span class="material-symbols-outlined">arrow_forward_ios</span>{' '}
+          </button>
+          <button
+            type={'submit'}
+            disabled={page >= pagesTotal}
+            onClick={e => {
+              setPage(pagesTotal)
+              handleSubmit(e)
+            }}
+            className={'paginationBtn'}
+            aria-label={'last page'}
+          >
+            <span class="material-symbols-outlined">last_page</span>
           </button>
         </div>
       </form>
