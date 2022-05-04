@@ -105,6 +105,14 @@
   margin-left: var(--spacing-xs);
 }
 
+@media screen and (max-width: 600px) {
+  .typeContainer label:last-child {
+    display: block;
+    margin-left: 5rem;
+    margin-top: var(--spacing-xs);
+  }
+}
+
 .termInput {
   text-indent: 8px;
   font-size: 1rem;
@@ -121,7 +129,7 @@
 
 .termInput,
 .submitBtn {
-  width: 50vw;
+  width: 60vw;
   height: 40px;
   border-radius: calc(var(--main-border-radius) * 0.5);
 }
@@ -175,10 +183,13 @@ input[type='radio'] {
   margin-top: var(--spacing-xs);
 }
 
-.paginationBtn {
-  display: inline;
-  margin: 0;
-  width: 100px;
+@media screen and (max-width: 400px) {
+  .btnGroup {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .feedbackContainer {
@@ -207,13 +218,24 @@ footer {
   text-align: center;
 }
 
+@media screen and (min-width: 300px) {
+  .termInput,
+  .submitBtn {
+    width: 60vw;
+  }
+}
+
 @media screen and (min-width: 800px) {
   .termInput,
   .submitBtn {
-    width: 30vw;
+    width: 50vw;
   }
-  .paginationBtn {
-    width: 150px;
+}
+
+@media screen and (min-width: 1000px) {
+  .termInput,
+  .submitBtn {
+    width: 30vw;
   }
   .listItem {
     margin-left: 0;
@@ -221,9 +243,9 @@ footer {
   }
 }
 
-@media screen and (min-width: 300px) {
-  .termInput,
-  .submitBtn {
-    width: 80w;
-  }
+.paginationBtn {
+  display: inline;
+  width: 150px;
+  margin: 0;
+  word-break: break-all;
 }
