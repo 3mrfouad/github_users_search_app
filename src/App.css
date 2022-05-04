@@ -97,6 +97,11 @@
   width: 5rem;
 }
 
+.count {
+  font-size: 1.2rem;
+  float: right;
+}
+
 .typeContainer {
   margin-top: var(--spacing-sm);
 }
