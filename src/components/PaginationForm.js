@@ -11,6 +11,7 @@ export default function PaginationForm({
   handleSubmit
 }) {
   const [showPagination, setShowPagination] = useState(false)
+  const [submitEvent, setSubmitEvent] = useState()
   const [pagesTotal, setPagesTotal] = useState(0)
 
   useEffect(() => {
@@ -22,6 +23,10 @@ export default function PaginationForm({
     setPagesTotal(Math.ceil(results?.total_count / perPage))
   }, [results, perPage])
 
+  useEffect(() => {
+    results && handleSubmit(submitEvent)
+  }, [page, perPage])
+
   return (
     showPagination && (
       <form className="paginationForm">
@@ -32,7 +37,7 @@ export default function PaginationForm({
             onChange={e => {
               setPerPage(e.target.value)
               setPage(1)
-              handleSubmit(e)
+              setSubmitEvent(e)
             }}
           >
             {Object.values(PER_PAGE_SIZE).map(num => {
@@ -51,7 +56,7 @@ export default function PaginationForm({
             disabled={page === 1}
             onClick={e => {
               setPage(1)
-              handleSubmit(e)
+              setSubmitEvent(e)
             }}
             className={'paginationBtn'}
             aria-label={'first page'}
@@ -62,8 +67,8 @@ export default function PaginationForm({
             type={'submit'}
             disabled={page === 1}
             onClick={e => {
-              setPage(page - 1)
-              handleSubmit(e)
+              setPage(page - 1 > 1 ? page - 1 : 1)
+              setSubmitEvent(e)
             }}
             className={'paginationBtn'}
             aria-label={'previous page'}
@@ -79,8 +84,8 @@ export default function PaginationForm({
             type={'submit'}
             disabled={page >= pagesTotal}
             onClick={e => {
-              setPage(page + 1)
-              handleSubmit(e)
+              setPage(page + 1 < pagesTotal ? page + 1 : pagesTotal)
+              setSubmitEvent(e)
             }}
             className={'paginationBtn'}
             aria-label={'next page'}
@@ -92,7 +97,7 @@ export default function PaginationForm({
             disabled={page >= pagesTotal}
             onClick={e => {
               setPage(pagesTotal)
-              handleSubmit(e)
+              setSubmitEvent(e)
             }}
             className={'paginationBtn'}
             aria-label={'last page'}

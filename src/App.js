@@ -19,45 +19,43 @@ function App() {
   const [type, setType] = useState('user')
 
   const handleSubmit = async e => {
+    e.preventDefault()
+
     // warn user if no search term
     if (!term) {
       alert('Please enter search term')
       return
     }
 
-    // load backend data
+    setResults({})
+    setError('')
     setLoading(true)
-    e.preventDefault()
+
+    // load backend data
     try {
-      const _perPage = Math.min(
-        results?.total_count - page * perPage,
-        e.target.value
-      )
-      console.log(results?.total_count - page * perPage, e.target.value)
       const response = await fetch(
-        getGitHubSearchUri(term, type, page, _perPage)
+        getGitHubSearchUri(term, type, page, perPage)
       )
       const result = await response.json()
-      setResults(result)
 
       // set error feedback message if any
       if (result?.total_count === 0) {
         setError('No search results. Please try a different search term.')
       } else {
         setError('')
+        setResults(result)
       }
       /* Edge case error since github api calls has max limit  */
       if (result?.message) {
         setError(result.message)
       }
     } catch (err) {
-      setResults(null)
+      setResults()
       setError('Error while getting search results. Please try again shortly!')
       console.error('Fetch Error ', err)
     }
     setLoading(false)
   }
-
   useEffect(() => {
     // setup events to monitor device online status
 
